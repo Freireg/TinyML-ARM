@@ -1,4 +1,5 @@
-*.zip
+*.log
+*.zip 
 # Prerequisites
 *.d
 
@@ -22,7 +23,7 @@
 *.a
 *.la
 *.lo
-*.log
+
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -48,3 +49,4 @@
 *.mod*
 *.cmd
 Workspace/TinyML-F407/Debug/*
+Workspace/.metadata/*

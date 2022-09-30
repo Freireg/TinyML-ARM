@@ -92,7 +92,10 @@ int main(void)
 	TfLiteStatus tflite_status;
 	uint32_t num_elements;
 	uint32_t timestamp;
-	float y_val;
+  float x_val, y_val, position;
+  uint16 inference_count;
+  uint16 kInferencesPerCycle = 1000; 
+  float kXrange = 2.f * 3.14159265359f;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -174,21 +177,25 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    position = static_cast<float>(inference_count)/static_cast<float>(kInferencesPerCycle);
+    x_val = position * kXrange;
+    timestamp = HAL_GetTick();
 
 	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 	  HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
 
 	  // Fill input buffer (use test value)
-	  for (uint32_t i = 0; i < num_elements; i++)
-	  {
-		model_input->data.f[i] = 2.0f;
-	  }
-
+	  // for (uint32_t i = 0; i < num_elements; i++)
+	  // {
+		// model_input->data.f[i] = 2.0f;
+	  // }
+    model_input->data.f[0] = x_val;
 	  // Get current timestamp
 	  timestamp = htim6.Instance->CNT;
 
