@@ -1,0 +1,17 @@
+../tfmicro/tensorflow/lite/c/common.c:23:5:TfLiteIntArrayGetSizeInBytes	16	static
+../tfmicro/tensorflow/lite/c/common.c:28:5:TfLiteIntArrayEqual	16	static
+../tfmicro/tensorflow/lite/c/common.c:34:5:TfLiteIntArrayEqualsArray	32	static
+../tfmicro/tensorflow/lite/c/common.c:46:17:TfLiteIntArrayCreate	24	static
+../tfmicro/tensorflow/lite/c/common.c:53:17:TfLiteIntArrayCopy	24	static
+../tfmicro/tensorflow/lite/c/common.c:62:6:TfLiteIntArrayFree	16	static
+../tfmicro/tensorflow/lite/c/common.c:66:5:TfLiteFloatArrayGetSizeInBytes	16	static
+../tfmicro/tensorflow/lite/c/common.c:73:19:TfLiteFloatArrayCreate	24	static
+../tfmicro/tensorflow/lite/c/common.c:80:6:TfLiteFloatArrayFree	16	static
+../tfmicro/tensorflow/lite/c/common.c:82:6:TfLiteTensorDataFree	16	static
+../tfmicro/tensorflow/lite/c/common.c:90:6:TfLiteQuantizationFree	24	static
+../tfmicro/tensorflow/lite/c/common.c:108:6:TfLiteSparsityFree	48	static
+../tfmicro/tensorflow/lite/c/common.c:141:6:TfLiteTensorFree	16	static
+../tfmicro/tensorflow/lite/c/common.c:156:6:TfLiteTensorReset	24	static
+../tfmicro/tensorflow/lite/c/common.c:176:6:TfLiteTensorRealloc	16	static
+../tfmicro/tensorflow/lite/c/common.c:191:13:TfLiteTypeGetName	16	static
+../tfmicro/tensorflow/lite/c/common.c:223:16:TfLiteDelegateCreate	56	static

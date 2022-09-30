@@ -9,6 +9,15 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include tfmicro/tensorflow/lite/micro/testing/subdir.mk
+-include tfmicro/tensorflow/lite/micro/memory_planner/subdir.mk
+-include tfmicro/tensorflow/lite/micro/kernels/subdir.mk
+-include tfmicro/tensorflow/lite/micro/benchmarks/subdir.mk
+-include tfmicro/tensorflow/lite/micro/subdir.mk
+-include tfmicro/tensorflow/lite/kernels/internal/subdir.mk
+-include tfmicro/tensorflow/lite/kernels/subdir.mk
+-include tfmicro/tensorflow/lite/core/api/subdir.mk
+-include tfmicro/tensorflow/lite/c/subdir.mk
 -include USB_DEVICE/Target/subdir.mk
 -include USB_DEVICE/App/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
@@ -79,8 +88,8 @@ all: main-build
 main-build: TinyML-F407.elf secondary-outputs
 
 # Tool invocations
-TinyML-F407.elf TinyML-F407.map: $(OBJS) $(USER_OBJS) C:\Users\guiga\Documents\Personal\ Projects\TinyML-ARM\Workspace\TinyML-F407\STM32F407VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "TinyML-F407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\guiga\Documents\Personal Projects\TinyML-ARM\Workspace\TinyML-F407\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TinyML-F407.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+TinyML-F407.elf TinyML-F407.map: $(OBJS) $(USER_OBJS) /home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/STM32F407VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "TinyML-F407.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TinyML-F407.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -38,4 +38,13 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \
 USB_DEVICE/Target \
+tfmicro/tensorflow/lite/c \
+tfmicro/tensorflow/lite/core/api \
+tfmicro/tensorflow/lite/kernels/internal \
+tfmicro/tensorflow/lite/kernels \
+tfmicro/tensorflow/lite/micro \
+tfmicro/tensorflow/lite/micro/benchmarks \
+tfmicro/tensorflow/lite/micro/kernels \
+tfmicro/tensorflow/lite/micro/memory_planner \
+tfmicro/tensorflow/lite/micro/testing \
 

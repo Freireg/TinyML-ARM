@@ -1,0 +1,10 @@
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:30:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:39:32:const TfLiteEvalTensor* tflite::micro::GetEvalInput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:45:26:TfLiteEvalTensor* tflite::micro::GetEvalOutput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+../tfmicro/tensorflow/lite/micro/kernels/circular_buffer.cc:76:6:void tflite::ops::micro::circular_buffer::Free(TfLiteContext*, void*)	16	static
+../tfmicro/tensorflow/lite/micro/kernels/circular_buffer.cc:78:14:TfLiteStatus tflite::ops::micro::circular_buffer::Prepare(TfLiteContext*, TfLiteNode*)	56	static
+../tfmicro/tensorflow/lite/micro/kernels/circular_buffer.cc:119:6:void tflite::ops::micro::circular_buffer::EvalInt8(const int8_t*, int, int, int8_t*)	24	static
+../tfmicro/tensorflow/lite/micro/kernels/circular_buffer.cc:124:14:TfLiteStatus tflite::ops::micro::circular_buffer::Eval(TfLiteContext*, TfLiteNode*)	48	static
+../tfmicro/tensorflow/lite/micro/kernels/circular_buffer.cc:164:21:TfLiteRegistration* tflite::ops::micro::Register_CIRCULAR_BUFFER()	4	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:60:10:const T* tflite::micro::GetTensorData(const TfLiteEvalTensor*) [with T = signed char]	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:54:4:T* tflite::micro::GetTensorData(TfLiteEvalTensor*) [with T = signed char]	16	static

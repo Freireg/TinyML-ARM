@@ -1,0 +1,15 @@
+/opt/st/stm32cubeide_1.10.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.0.202111181127/tools/arm-none-eabi/include/c++/10.3.1/cmath:260:3:constexpr float std::floor(float)	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:184:3:tflite::RuntimeShape::~RuntimeShape()	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:194:18:int32_t tflite::RuntimeShape::DimensionsCount() const	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:195:18:int32_t tflite::RuntimeShape::Dims(int) const	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:213:25:const int32_t* tflite::RuntimeShape::DimsData() const	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:271:14:int tflite::RuntimeShape::FlatSize() const	32	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/types.h:487:12:int tflite::MatchingFlatSize(const tflite::RuntimeShape&, const tflite::RuntimeShape&)	32	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/kernels/internal/reference/floor.h:26:13:void tflite::reference_ops::Floor(const tflite::RuntimeShape&, const float*, const tflite::RuntimeShape&, float*)	48	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:30:26:TfLiteEvalTensor* tflite::micro::GetMutableEvalInput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:39:32:const TfLiteEvalTensor* tflite::micro::GetEvalInput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:45:26:TfLiteEvalTensor* tflite::micro::GetEvalOutput(const TfLiteContext*, const TfLiteNode*, int)	24	static
+../tfmicro/tensorflow/lite/micro/kernels/floor.cc:30:14:TfLiteStatus tflite::ops::micro::floor::Eval(TfLiteContext*, TfLiteNode*)	96	static
+../tfmicro/tensorflow/lite/micro/kernels/floor.cc:44:20:TfLiteRegistration tflite::ops::micro::Register_FLOOR()	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:60:10:const T* tflite::micro::GetTensorData(const TfLiteEvalTensor*) [with T = float]	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/kernels/kernel_util.h:54:4:T* tflite::micro::GetTensorData(TfLiteEvalTensor*) [with T = float]	16	static

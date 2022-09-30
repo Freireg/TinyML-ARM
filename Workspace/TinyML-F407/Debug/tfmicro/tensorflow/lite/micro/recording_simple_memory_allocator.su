@@ -1,0 +1,12 @@
+/opt/st/stm32cubeide_1.10.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.0.202111181127/tools/arm-none-eabi/include/c++/10.3.1/new:174:33:void* operator new(std::size_t, void*)	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:24:1:tflite::RecordingSimpleMemoryAllocator::RecordingSimpleMemoryAllocator(tflite::ErrorReporter*, uint8_t*, size_t)	24	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:32:1:tflite::RecordingSimpleMemoryAllocator::~RecordingSimpleMemoryAllocator()	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:32:1:virtual tflite::RecordingSimpleMemoryAllocator::~RecordingSimpleMemoryAllocator()	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/simple_memory_allocator.h:31:7:constexpr tflite::SimpleMemoryAllocator::SimpleMemoryAllocator(const tflite::SimpleMemoryAllocator&)	16	static
+/home/guilherme/Projects/STM-Workspace/TinyML-ARM/Workspace/TinyML-F407/tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.h:27:7:constexpr tflite::RecordingSimpleMemoryAllocator::RecordingSimpleMemoryAllocator(const tflite::RecordingSimpleMemoryAllocator&)	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:34:33:static tflite::RecordingSimpleMemoryAllocator* tflite::RecordingSimpleMemoryAllocator::Create(tflite::ErrorReporter*, uint8_t*, size_t)	80	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:48:8:size_t tflite::RecordingSimpleMemoryAllocator::GetRequestedBytes() const	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:52:8:size_t tflite::RecordingSimpleMemoryAllocator::GetUsedBytes() const	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:56:8:size_t tflite::RecordingSimpleMemoryAllocator::GetAllocatedCount() const	16	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:60:14:virtual TfLiteStatus tflite::RecordingSimpleMemoryAllocator::EnsureHeadSize(size_t, size_t)	32	static
+../tfmicro/tensorflow/lite/micro/recording_simple_memory_allocator.cc:71:10:virtual uint8_t* tflite::RecordingSimpleMemoryAllocator::AllocateFromTail(size_t, size_t)	32	static
