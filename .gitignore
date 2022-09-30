@@ -48,5 +48,5 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
-Workspace/TinyML-F407/Debug/*
-Workspace/.metadata/*
+TinyML-F407/Debug/*
+
