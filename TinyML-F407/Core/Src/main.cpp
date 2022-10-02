@@ -22,14 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_cdc_if.h"
-#include "tensorflow/lite/micro/kernels/micro_ops.h"
-#include "tensorflow/lite/micro/all_ops_resolver.h"
-#include "tensorflow/lite/micro/micro_error_reporter.h"
-#include "tensorflow/lite/micro/micro_interpreter.h"
-#include "tensorflow/lite/micro/micro_mutable_op_resolver.h"
-#include "tensorflow/lite/version.h"
-#include "model_data.h"
+
+#include "main_functions.h"
 
 /* USER CODE END Includes */
 
@@ -51,20 +45,7 @@
 TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN PV */
-// TFLite globals
-namespace {
-  tflite::ErrorReporter* error_reporter = nullptr;
-  const tflite::Model* model = nullptr;
-  tflite::MicroInterpreter* interpreter = nullptr;
-  TfLiteTensor* model_input = nullptr;
-  TfLiteTensor* model_output = nullptr;
 
-  // Create an area of memory to use for input, output, and other TensorFlow
-  // arrays. You'll need to adjust this by compiling, running, and looking
-  // for errors.
-  constexpr int kTensorArenaSize = 2 * 1024;
-  __attribute__((aligned(16)))uint8_t tensor_arena[kTensorArenaSize];
-} // namespace
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,15 +68,7 @@ static void MX_TIM6_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	char buf[50];
-	int buf_len = 0;
-	TfLiteStatus tflite_status;
-	uint32_t num_elements;
-	uint32_t timestamp;
-  float x_val, y_val, position;
-  uint16 inference_count;
-  uint16 kInferencesPerCycle = 1000; 
-  float kXrange = 2.f * 3.14159265359f;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -120,102 +93,21 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  // Set up logging (modify tensorflow/lite/micro/debug_log.cc)
-    static tflite::MicroErrorReporter micro_error_reporter;
-    error_reporter = &micro_error_reporter;
-
-    // Say something to test error reporter
-    error_reporter->Report("STM32 TensorFlow Lite test");
-
-    // Map the model into a usable data structure
-    model = tflite::GetModel(converted_model_tflite);
-    if (model->version() != TFLITE_SCHEMA_VERSION)
-    {
-      error_reporter->Report("Model version does not match Schema");
-      while(1);
-    }
-
-    // Pull in only needed operations (should match NN layers). Template parameter
-    // <n> is number of ops to be added. Available ops:
-    // tensorflow/lite/micro/kernels/micro_ops.h
-    static tflite::AllOpsResolver micro_op_resolver;
-
-    // Add dense neural network layer operation
-//    tflite_status = tflite::AllOpsResolver micro_op_resolver;
-//    if (tflite_status != kTfLiteOk)
-//    {
-//      error_reporter->Report("Could not add FULLY CONNECTED op");
-//      while(1);
-//    }
-
-    // Build an interpreter to run the model with.
-    static tflite::MicroInterpreter static_interpreter(
-        model, micro_op_resolver, tensor_arena, kTensorArenaSize, error_reporter);
-    interpreter = &static_interpreter;
-
-    // Allocate memory from the tensor_arena for the model's tensors.
-    tflite_status = interpreter->AllocateTensors();
-    if (tflite_status != kTfLiteOk)
-    {
-      error_reporter->Report("AllocateTensors() failed");
-      while(1);
-    }
-
-    // Assign model input and output buffers (tensors) to pointers
-    model_input = interpreter->input(0);
-    model_output = interpreter->output(0);
-
-    // Get number of elements in input tensor
-    num_elements = model_input->bytes / sizeof(float);
-    buf_len = sprintf(buf, "Number of input elements: %lu\r\n", num_elements);
-    CDC_Transmit_FS((uint8_t *)buf, buf_len);
-
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-
+  setup();
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    position = static_cast<float>(inference_count)/static_cast<float>(kInferencesPerCycle);
-    x_val = position * kXrange;
-    timestamp = HAL_GetTick();
-
 	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 	  HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-
-	  // Fill input buffer (use test value)
-	  // for (uint32_t i = 0; i < num_elements; i++)
-	  // {
-		// model_input->data.f[i] = 2.0f;
-	  // }
-    model_input->data.f[0] = x_val;
-	  // Get current timestamp
-	  timestamp = htim6.Instance->CNT;
-
-	  // Run inference
-	  tflite_status = interpreter->Invoke();
-	  if (tflite_status != kTfLiteOk)
-	  {
-		error_reporter->Report("Invoke failed");
-	  }
-
-	  // Read output (predicted y) of neural network
-	  y_val = model_output->data.f[0];
-
-	  // Print output of neural network along with inference time (microseconds)
-	  buf_len = sprintf(buf,
-						"Output: %f | Duration: %lu\r\n",
-						y_val,
-						htim6.Instance->CNT - timestamp);
-	  CDC_Transmit_FS((uint8_t *)buf, buf_len);
-
+	  loop();
 	  // Wait before doing it again
 	  HAL_Delay(500);
   }
